@@ -32,6 +32,13 @@ void add_big_numbers(int *result, int *a, int *b, int *c) {
     int carry = 0;
     for (int i = MAX_DIGITS - 1; i >= 0; i--) {
         int sum = a[i] + b[i] + c[i] + carry;
+
+        /*
+        Remark：
+        Quotient(/) - calculate the "quotient" of two numbers. ex: 10 / 3 = 3.
+        Remainder(%) - calculates the "remainder" of the division of two numbers. ex: 10 % 3 = 1.
+        */
+
         result[i] = sum % 10;
         carry = sum / 10;
     }
@@ -39,9 +46,15 @@ void add_big_numbers(int *result, int *a, int *b, int *c) {
 
 void print_big_number(int *number) {
     int start = 0;
+
+    // while loop: fine the first num which is not 0
+
     while (start < MAX_DIGITS && number[start] == 0) {
         start++;
     }
+
+    // check whether entire array consists of zeros.
+
     if (start == MAX_DIGITS) {
         printf("0");
     } else {
@@ -60,6 +73,15 @@ int main(void) {
     int trib2[MAX_DIGITS] = {0};
     int trib3[MAX_DIGITS] = {0};
     int trib_next[MAX_DIGITS] = {0};
+
+    /*
+    Why not use trib1[0]? In general we calculate from 0!
+    But this is not the common situation - We need to handle carries from the high end of the array to the low end.
+    (Like you learn how to add sth in primary school...)
+    
+    We need perform additions starting from the least significant digit (rightmost),
+    moving leftward to the more significant digits.
+    */
 
     trib1[MAX_DIGITS - 1] = 1;
     trib2[MAX_DIGITS - 1] = 1;
