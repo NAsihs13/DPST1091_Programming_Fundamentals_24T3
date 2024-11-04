@@ -1,0 +1,10 @@
+Question 11 (●●●●):
+The Trouble with Tribonacci
+The Tribonacci series is very similar to the Fibonacci series. 
+The only difference between the two is that in the Tribonacci series, you add the previous three terms instead of the previous two.
+
+The first three values in the Tribonacci series are, by definition, 1.
+
+After the first three values each value is the sum of the previous three.
+
+Hence, the Tribonacci series commences: 1,1,1,3,5,9,17,31,57,105, ...
